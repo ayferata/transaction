@@ -1,9 +1,13 @@
 # transaction
-import java.sql.*; 
+import java; 
 public class DBConnect { public static final String DB_URL = "jdbc:mysql://localhost/school"; public static final String DB_USERNAME = "root"; public static final String DB_PASSWORD = ""; 
-public static void main(String[] args) { Connection conn = null; try {             conn = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
+public static void main(String[] args) { Connection conn = null; try {             
+conn = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
 conn.setAutoCommit(false); 
-// PreparedStatement ile Insert İşlemi PreparedStatement pr = conn.prepareStatement("INSERT INTO student (student_fname,student_lname,student_class) VALUES (?,?,?)"); pr.setString(1, "Harry"); pr.setString(2, "Potter"); pr.setString(3, "2");             pr.executeUpdate();
+
+ pr = conn.prepareStatement("INSERT INTO student (student_fname,student_lname,student_class)
+ VALUES (?,?,?)"); pr.setString(1, "Harry"); pr.setString(2, "Potter"); pr.setString(3, "2");             
+ pr.executeUpdate();
 
 if (1 == 1) { throw new SQLException();             }
 
